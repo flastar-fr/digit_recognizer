@@ -1,0 +1,52 @@
+[
+  {
+    "sensor_id": 101,
+    "vibration_level": 1.2,
+    "temperature": 65.5,
+    "rotation_speed": 1500,
+    "operating_hours": 1200,
+    "remaining_useful_life": 340.5,
+    "failure_risk": 0.02,
+    "maintenance_type": "none"
+  },
+  {
+    "sensor_id": 102,
+    "vibration_level": 8.7,
+    "temperature": 98.2,
+    "rotation_speed": 3100,
+    "operating_hours": 7400,
+    "remaining_useful_life": 12.0,
+    "failure_risk": 0.89,
+    "maintenance_type": "part_replacement"
+  },
+  {
+    "sensor_id": 103,
+    "vibration_level": 4.1,
+    "temperature": 82.0,
+    "rotation_speed": 1800,
+    "operating_hours": 4100,
+    "remaining_useful_life": 115.0,
+    "failure_risk": 0.35,
+    "maintenance_type": "oil_change"
+  },
+  {
+    "sensor_id": 104,
+    "vibration_level": 0.8,
+    "temperature": 52.1,
+    "rotation_speed": 1200,
+    "operating_hours": 150,
+    "remaining_useful_life": 490.0,
+    "failure_risk": 0.00,
+    "maintenance_type": "none"
+  },
+  {
+    "sensor_id": 105,
+    "vibration_level": 9.3,
+    "temperature": 104.7,
+    "rotation_speed": 3400,
+    "operating_hours": 8900,
+    "remaining_useful_life": 3.5,
+    "failure_risk": 0.95,
+    "maintenance_type": "part_replacement"
+  }
+]

@@ -1,0 +1,65 @@
+[
+  {
+    "property_id": 1,
+    "surface_area": 45.2,
+    "bedrooms_count": 1,
+    "distance_to_center": 2.4,
+    "energy_rating": "B",
+    "age": 5,
+    "sale_price": 210000
+  },
+  {
+    "property_id": 2,
+    "surface_area": 85.0,
+    "bedrooms_count": 3,
+    "distance_to_center": 7.1,
+    "energy_rating": "D",
+    "age": 42,
+    "sale_price": 315000
+  },
+  {
+    "property_id": 3,
+    "surface_area": 120.5,
+    "bedrooms_count": 4,
+    "distance_to_center": 0.5,
+    "energy_rating": "A",
+    "age": 1,
+    "sale_price": 680000
+  },
+  {
+    "property_id": 4,
+    "surface_area": 28.0,
+    "bedrooms_count": 1,
+    "distance_to_center": 1.2,
+    "energy_rating": "G",
+    "age": 80,
+    "sale_price": 115000
+  },
+  {
+    "property_id": 5,
+    "surface_area": 67.3,
+    "bedrooms_count": 2,
+    "distance_to_center": 4.8,
+    "energy_rating": "C",
+    "age": 15,
+    "sale_price": 290000
+  },
+  {
+    "property_id": 6,
+    "surface_area": 142.0,
+    "bedrooms_count": 5,
+    "distance_to_center": 12.0,
+    "energy_rating": "E",
+    "age": 55,
+    "sale_price": 410000
+  },
+  {
+    "property_id": 7,
+    "surface_area": 55.0,
+    "bedrooms_count": 2,
+    "distance_to_center": 3.1,
+    "energy_rating": "C",
+    "age": 12,
+    "sale_price": 245000
+  }
+]
