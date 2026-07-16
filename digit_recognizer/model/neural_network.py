@@ -5,7 +5,7 @@ from digit_recognizer.model.utils import deriv_sigmoid, mse_loss
 
 
 LEARN_RATE = .1
-EPOCHS = 10000
+EPOCHS = 100
 
 
 class NeuralNetwork:
@@ -48,23 +48,14 @@ class NeuralNetwork:
 
         out_neuron_outputs = activations[-1]
 
-        delta_outs = []
-        old_output_weights = []
+        output_errors = -2 * (y_true - out_neuron_outputs)
+        out_deriv = deriv_sigmoid(out_neuron_outputs)
 
-        for j, neuron in enumerate(self.output.neurons):
-            output_error = -2 * (y_true[j] - out_neuron_outputs[j])
-            out_deriv = deriv_sigmoid(out_neuron_outputs[j])
+        delta_outs = output_errors * out_deriv
+        old_output_weights = self.output.weights.copy()
 
-            delta = output_error * out_deriv
-            delta_outs.append(delta)
-
-            old_output_weights.append(list(neuron.weights))
-
-            for k, weight in enumerate(neuron.weights):
-                corresponding_input = activations[-2][k]
-                neuron.weights[k] -= LEARN_RATE * (delta * corresponding_input)
-
-            neuron.bias -= LEARN_RATE * delta
+        self.output.weights -= LEARN_RATE * np.outer(delta_outs, activations[-2])
+        self.output.biases -= LEARN_RATE * delta_outs
 
         next_layer_deltas = delta_outs
         next_layer_weights = old_output_weights

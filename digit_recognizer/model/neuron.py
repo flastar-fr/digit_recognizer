@@ -11,5 +11,5 @@ class Neuron:
         self.weights = weights
         self.bias = bias
 
-    def feedforward(self, inputs):
+    def feedforward(self, inputs) -> np.ndarray:
         return sigmoid(np.dot(inputs, self.weights) + self.bias)
