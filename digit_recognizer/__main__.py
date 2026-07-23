@@ -1,7 +1,11 @@
 from pathlib import Path
 
 import numpy as np
+import torch
+import torchvision
+from torchvision.transforms import transforms, v2
 
+from digit_recognizer.model.linear_nn import SimpleMLP, train_model, test_model
 from digit_recognizer.model.neural_network import NeuralNetwork
 
 
@@ -72,3 +76,29 @@ real_values = np.argmax(testing_all_y_trues, axis=1)
 
 accuracy = np.mean(predictions == real_values) * 100
 print(f"Précision sur le dataset d'entraînement : {accuracy:.2f}%")
+
+
+device = torch.device(torch.accelerator.current_accelerator().type if torch.accelerator.is_available() else 'cpu')
+
+transform = transforms.Compose([
+    v2.ToImage(),
+    v2.ToDtype(torch.float32, scale=True),
+])
+batch_size = 2048
+
+trainset = torchvision.datasets.MNIST(root='./data', train=True,
+                                        download=True, transform=transform)
+trainloader = torch.utils.data.DataLoader(trainset, batch_size=batch_size,
+                                          shuffle=True, num_workers=0)
+
+testset = torchvision.datasets.MNIST(root='./data', train=False,
+                                       download=True, transform=transform)
+testloader = torch.utils.data.DataLoader(testset, batch_size=batch_size,
+                                         shuffle=False, num_workers=0)
+
+net = SimpleMLP(28**2, 1, 16, 10)
+
+net.to(device)
+
+train_model(net, 100, trainloader, device)
+test_model(net, testloader, [str(i) for i in range(10)], device)
